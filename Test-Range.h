@@ -24,5 +24,15 @@ TEST_CASE("OnCheckRange_CheckForOutput_FordifferentKeyValue")
   expectedMap["1-3"] = 4;
   expectedMap["4-6"] = 3;
   expectedMap["7-9"] = 3;
-  REQUIRE(rangeMap == expectedMap);
+  SECTION("Check for the size of maps")
+  {
+    REQUIRE(rangeMap.size() == expectedMap.size());
+  }
+  SECTION("compare entries in rangeMap and expectedMap")
+  {
+    for(int i = 0; i<expectedMap.size() ; ++i)
+    {
+        REQUIRE(rangeMap[i] == expectedMap[i]);
+    }
+  }
 }
