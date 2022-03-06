@@ -1,7 +1,7 @@
 #include "Range.h"
- using nampesapce std;
+ using namesapce std;
 
-T_RangeMap Range::checkRange(::std::vector<int> input, int rangeValue)
+Range::T_RangeMap Range::checkRange(::std::vector<int> input, int rangeValue)
 {
  
 }
