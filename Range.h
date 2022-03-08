@@ -13,3 +13,8 @@ class Range
    private:
    
 };
+
+int main()
+{
+   return 0;
+}
