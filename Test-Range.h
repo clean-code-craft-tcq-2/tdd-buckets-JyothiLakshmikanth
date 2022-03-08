@@ -8,26 +8,26 @@
 #include "Range.h"
 
 using namespace std;
-
+Range range;
 TEST_CASE("OnCheckRange_CheckForOutput_FordifferentKeyValue")
 {
   int key = 3;
   ::std::vector<int> input = {2,4,3,6,1,6,7,8,9,3};
   ::std::map<string, int> rangeMap, expectedMap;
-  rangeMap = checkRange(input,key);
+  rangeMap = range.checkRange(input,key);
 
   expectedMap["1-3"] = 4;
   expectedMap["4-6"] = 3;
   expectedMap["7-9"] = 3;
-//   SECTION("Check for the size of maps")
-//   {
+  SECTION("Check for the size of maps")
+  {
     REQUIRE(rangeMap.size() == expectedMap.size());
-//   }
-//   SECTION("compare entries in rangeMap and expectedMap")
-//   {
+  }
+  SECTION("compare entries in rangeMap and expectedMap")
+  {
     for(int i = 0; i<expectedMap.size() ; ++i)
     {
         REQUIRE(rangeMap[i] == expectedMap[i]);
     }
-//   }
+  }
 }
