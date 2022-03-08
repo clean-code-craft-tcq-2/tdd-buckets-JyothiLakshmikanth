@@ -9,11 +9,6 @@
 
 using namespace std;
 
-// void prepareExpectedMap::std::map<string, int>& expectedMap, std::set<int> input, int key)
-// {
-  
-// }
-
 TEST_CASE("OnCheckRange_CheckForOutput_FordifferentKeyValue")
 {
   int key = 3;
