@@ -25,9 +25,6 @@ TEST_CASE("OnCheckRange_CheckForOutput_FordifferentKeyValue")
   }
   SECTION("compare entries in rangeMap and expectedMap")
   {
-    for(int i = 0; i < static_cast<int>(expectedMap.size()) ; ++i)
-    {
-        REQUIRE(rangeMap[i] == expectedMap[i]);
-    }
+    REQUIRE(rangeMap == expectedMap);
   }
 }
