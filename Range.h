@@ -8,8 +8,8 @@ using namespace std;
 class Range
 {
    public:
-   typedef ::std::map<string, int> T_RangeMap;
-   T_RangeMap checkRange(::std::vector<int> input, int rangeValue);
+   typedef ::std::vector<::std::vector<int>> T_InputList;
+   T_InputList checkRange(::std::vector<int> input, int rangeValue);
 
    
 };
