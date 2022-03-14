@@ -14,7 +14,7 @@ TEST_CASE("OnCheckRange_CheckForOutput_FordifferentKeyValue")
   int key = 3;
   ::std::vector<int> input = {2,4,3,6,1,6,7,8,9,3};
   ::std::vector<::std::vector<int>> actualOutput,expectedOutput;
-  rangeMap = range.checkRange(input,key);
+  //rangeMap = range.checkRange(input,key);
 
   expectedOutput.push_back({2,3,1,3});
   expectedOutput.push_back({4,6,6});
