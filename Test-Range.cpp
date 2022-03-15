@@ -66,7 +66,7 @@ TEST_CASE("ForTheGivenSequence_FindTheValidRanges")
   actualRangelist = range.getRanges(boundaryValues, key);
   SECTION("Check the size")
   {
-    REQUIRE(expectedRangeList.size() == actualRangelist.size())
+    REQUIRE(expectedRangeList.size() == actualRangelist.size());
   }
       SECTION("check the list")
     {
@@ -91,7 +91,7 @@ TEST_CASE("ForGivenSequenceRange_GetTheReadings")
   actualRangeBasedReadingsList = range.getTheReadings(rangelist, validSequence);
   SECTION("Check the size")
   {
-    REQUIRE(expectedRangeBasedReadingsList.size() == actualRangeBasedReadingsList.size())
+    REQUIRE(expectedRangeBasedReadingsList.size() == actualRangeBasedReadingsList.size());
   }
   SECTION("check the list")
     {
