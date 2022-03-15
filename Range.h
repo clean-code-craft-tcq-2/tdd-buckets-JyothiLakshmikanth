@@ -17,6 +17,17 @@ class Range
 
     typedef struct
     {
+       public:
+       BoundValues(int max_value, int min_value):max(max_value),min(min_value){}
+       int getMaxValue()
+       {
+          return max;
+       }
+       int getMinValue()
+       {
+          return min;
+       }
+       private:
       int max;
       int min;
     }BoundValues;
