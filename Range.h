@@ -21,7 +21,7 @@ class Range
       int min;
     };
    typedef ::std::vector< ::std::vector<int>> T_RangeBasedReadingsList;
-   typedef vector<pair<size_t, size_t> > T_RangeList;
+   typedef vector<pair<int, int> > T_RangeList;
 
    ::string checkTheRangeAndReadings(::std::vector<int> sequence, int key);
 
