@@ -1,8 +1,8 @@
 #pragma once
 #include <iostream>
+#include <bits/stdc++.h>
 #include <vector>
 #include <string>
-#include <map>
 
 using namespace std;
 
