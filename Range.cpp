@@ -31,7 +31,7 @@ Range::BoundaryValues Range::getMaxAndMinValue(::vector<int> input)
     char delimiter = ',';
     char separator = '-';
     outputCSVFormat.append("RANGE");
-    outputCSVFormat = output+delimiter;
+    outputCSVFormat = outputCSVFormat+delimiter;
     outputCSVFormat.append("READINGS");
     outputCSVFormat.append("\n");
     for(int i = 0; i<range.size();++i)
@@ -96,9 +96,9 @@ Range::BreachType Range::validateTheData(::vector<int> sequence, int key)
     {
         breach = INVALID;
     }
-    for(::vector<int>::const_iterator inputIt = input.begin(); inputIt!=input.end(); ++inputIt)
+    for(::vector<int>::const_iterator sequenceIt = sequence.begin(); sequenceIt!=sequence.end(); ++sequenceIt)
     {
-        if(*inputIt<0)
+        if(*sequenceIt<0)
         {
             breach = INVALID;
             break;
