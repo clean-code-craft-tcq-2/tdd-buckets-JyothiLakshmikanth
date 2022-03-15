@@ -19,13 +19,13 @@ TEST_CASE("ValidateTheData_CheckForBreachType_IsValidOrNot")
   {
     int key = 0;
     breach = range.validateTheData(validSequence,key);
-    REQUIRE(breach == INVALID);
+    REQUIRE(breach == Range::INVALID);
   }
   SECTION("Check for negative key Value")
   {
     int key = -1;
     breach = range.validateTheData(validSequence,key);
-    REQUIRE(breach == INVALID);
+    REQUIRE(breach == Range::INVALID);
   }
   SECTION("check for Positive Key Value and then check for Sequence")
   {
@@ -33,14 +33,14 @@ TEST_CASE("ValidateTheData_CheckForBreachType_IsValidOrNot")
     SECTION("Check for Valid Sequence with Valid Key")
     {
        breach = range.validateTheData(validSequence,key);
-       REQUIRE(breach == VALID);
+       REQUIRE(breach == Range::VALID);
     }
     SECTION("Check for Invalid Sequence with Valid Key")
     {
        int key = 3;
        ::std::vector<int> inValidSequence = {2,4,3,6,-1,6,7,8,-9,3};
        breach = range.validateTheData(inValidSequence,key);
-       REQUIRE(breach == INVALID);
+       REQUIRE(breach == Range::INVALID);
     }
   }
 }
