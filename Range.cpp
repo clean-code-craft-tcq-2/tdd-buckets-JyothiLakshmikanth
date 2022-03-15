@@ -9,8 +9,8 @@
 
 Range::BoundValues Range::getMaxAndMinValue(::vector<int> /*input*/)
 {
- Range::BoundValues values;
- return values;
+ Range::BoundValues boundaryValues(0,0);
+ return boundaryValues;
 }
 
 ::string Range::prepareOutputInCSVFormat(Range::T_RangeList /*range*/, Range::T_RangeBasedReadingsList /*readingsList*/)
