@@ -48,8 +48,8 @@ TEST_CASE("ForTheGivenSequence_FindTheMaxAndMinValues")
 {
   ::std::vector<int> validSequence = {2,4,3,6,1,6,7,8,9,3};
   Range::BoundaryValues boundaryValues = range.getMaxAndMinValue(validSequence);
-  REQUIRE(boundaryValues.min == 1);
-  REQUIRE(boundaryValues.max == 9);
+  REQUIRE(boundaryValues.getMinValue() == 1);
+  REQUIRE(boundaryValues.getMaxValue() == 9);
 }
 
 TEST_CASE("ForTheGivenSequence_FindTheValidRanges")
