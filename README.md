@@ -59,8 +59,6 @@ Test Use cases:
 
 1. Operation Action : Check for Valid/InValid Sequence. 
     Expected Results : Check for breach Type. If Valid Sequence Breach Type would be VALID and if it is InValid Sequence Breach Type would be INVALID
-1. Operation Action : If it is InValid Sequence Error Message to be sent to client
-    Expected Results : Error INVALID-SEQUENCE to be sent
 1. Operation Action : For Valid Sequence check for Max and Min Value.
     Expected Action : check if the Max and Min Value that is found from the Valid Sequence is as expected Value
 1. Operation Action : For Valid Sequence check the Readings
