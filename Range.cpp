@@ -94,15 +94,15 @@ Range::BreachType Range::validateTheData(::vector<int> sequence, int key)
     Range::BreachType breachType = VALID;
     if(key < 0)
     {
-        breach = INVALID;
+        breachType = INVALID;
     }
     for(::vector<int>::const_iterator sequenceIt = sequence.begin(); sequenceIt!=sequence.end(); ++sequenceIt)
     {
         if(*sequenceIt<0)
         {
-            breach = INVALID;
+            breachType = INVALID;
             break;
         }
     }
-    return breach;
+    return breachType;
 }
