@@ -15,22 +15,11 @@ class Range
       INVALID
     }BreachType;
 
-    typedef struct
+    struct BoundaryValues
     {
-       public:
-       BoundValues(int max_value, int min_value):max(max_value),min(min_value){}
-       int getMaxValue()
-       {
-          return max;
-       }
-       int getMinValue()
-       {
-          return min;
-       }
-       private:
       int max;
       int min;
-    }BoundValues;
+    };
    typedef ::std::vector< ::std::vector<int>> T_RangeBasedReadingsList;
    typedef vector<pair<size_t, size_t> > T_RangeList;
 
