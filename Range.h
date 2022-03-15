@@ -6,21 +6,20 @@
 
 using namespace std;
 
-typedef enum
-{
-    VALID,
-    INVALID
-}BreachType;
-
-typedef struct
-{
-    int max;
-    int min;
-}BoundValues;
-
 class Range
 {
    public:
+    typedef enum
+    {
+      VALID,
+      INVALID
+    }BreachType;
+
+    typedef struct
+    {
+      int max;
+      int min;
+    }BoundValues;
    typedef ::std::vector< ::std::vector<int>> T_RangeBasedReadingsList;
    typedef vector<pair<size_t, size_t> > T_RangeList;
 
