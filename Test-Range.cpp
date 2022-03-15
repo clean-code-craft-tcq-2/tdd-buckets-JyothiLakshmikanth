@@ -67,11 +67,11 @@ TEST_CASE("ForTheGivenSequence_FindTheValidRanges")
   SECTION("Check the size")
   {
     REQUIRE(expectedRangeList.size() == actualRangelist.size())
-    SECTION("check the list")
+  }
+      SECTION("check the list")
     {
       REQUIRE(expectedRangeList == actualRangelist);
     }
-  }
 }
 
 TEST_CASE("ForGivenSequenceRange_GetTheReadings")
@@ -92,11 +92,11 @@ TEST_CASE("ForGivenSequenceRange_GetTheReadings")
   SECTION("Check the size")
   {
     REQUIRE(expectedRangeBasedReadingsList.size() == actualRangeBasedReadingsList.size())
-    SECTION("check the list")
+  }
+  SECTION("check the list")
     {
       REQUIRE(expectedRangeBasedReadingsList == actualRangeBasedReadingsList);
     }
-  }
 }
 
 TEST_CASE("checkTheRangeAndReadings_ForGivenSequence_checkTheOutput")
@@ -129,7 +129,7 @@ TEST_CASE("checkTheRangeAndReadings_ForGivenSequence_checkTheOutput")
       char delimiter = ',';
       char separator = '-';
       expectedOutput.append("RANGE");
-      expectedOutput = output+delimiter;
+      expectedOutput = expectedOutput+delimiter;
       expectedOutput.append("READINGS");
       expectedOutput.append("\n");
       for(size_t i = 0; i<rangelist.size();++i)
