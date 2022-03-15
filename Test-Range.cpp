@@ -2,7 +2,6 @@
 #include "test/catch.hpp"
 
 #include <vector>
-#include <map>
 #include <string>
 #define private public
 #include "Range.h"
