@@ -49,7 +49,7 @@ Range::BoundaryValues Range::getMaxAndMinValue(::vector<int> input)
 Range::T_RangeBasedReadingsList Range::getTheReadings(Range::T_RangeList range, ::vector<int> sequence)
 {
  Range::T_RangeBasedReadingsList rangeBasedReadingsList;
-    for(size_t i = 0; i < range.size(); ++i)
+    for(int i = 0; i < range.size(); ++i)
     {
         ::vector<int> readingList;
 //         cout << range[i].first << "\t" << range[i].second << endl;
@@ -80,7 +80,7 @@ Range::T_RangeList Range::getRanges(Range::BoundaryValues values, int key)
  Range::T_RangeList rangList;
     
 //     ::cout<<"min - "<<values.min<< "\t" <<"max - "<<values.max<< "\t" <<"key - "<<key<<endl;
-    for (size_t i = values.min; i < values.max; )
+    for (int i = values.min; i < values.max; )
     {
         rangList.push_back(make_pair(i,i+key-1));
         i=i+key;
