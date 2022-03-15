@@ -13,10 +13,11 @@ Range range;
 TEST_CASE("ValidateTheData_CheckForBreachType_IsValidOrNot")
 {
   ::std::vector<int> validSequence = {2,4,3,6,1,6,7,8,9,3};
+  Range::BreachType breach;
   SECTION("Check For Key Value 0")
   {
     int key = 0;
-    BreachType breach = range.validateTheData(validSequence,key);
+    breach = range.validateTheData(validSequence,key);
     REQUIRE(breach == INVALID);
   }
   SECTION("Check for negative key Value")
@@ -46,7 +47,7 @@ TEST_CASE("ValidateTheData_CheckForBreachType_IsValidOrNot")
 TEST_CASE("ForTheGivenSequence_FindTheMaxAndMinValues")
 {
   ::std::vector<int> validSequence = {2,4,3,6,1,6,7,8,9,3};
-  BoundaryValues values = range.getMaxAndMinValue(validSequence);
+  Range::BoundaryValues values = range.getMaxAndMinValue(validSequence);
   REQUIRE(values.min == 1);
   REQUIRE(values.max == 9);
 }
