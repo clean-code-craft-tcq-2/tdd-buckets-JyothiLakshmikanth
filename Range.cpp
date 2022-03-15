@@ -34,7 +34,7 @@ Range::BoundaryValues Range::getMaxAndMinValue(::vector<int> input)
     outputCSVFormat = outputCSVFormat+delimiter;
     outputCSVFormat.append("READINGS");
     outputCSVFormat.append("\n");
-    for(int i = 0; i<range.size();++i)
+    for(size_t i = 0; i<range.size();++i)
     {
         outputCSVFormat.append(std::to_string(range[i].first));
         outputCSVFormat = outputCSVFormat + separator;
@@ -49,7 +49,7 @@ Range::BoundaryValues Range::getMaxAndMinValue(::vector<int> input)
 Range::T_RangeBasedReadingsList Range::getTheReadings(Range::T_RangeList range, ::vector<int> sequence)
 {
  Range::T_RangeBasedReadingsList rangeBasedReadingsList;
-    for(int i = 0; i < range.size(); ++i)
+    for(size_t i = 0; i < range.size(); ++i)
     {
         ::vector<int> readingList;
 //         cout << range[i].first << "\t" << range[i].second << endl;
@@ -92,7 +92,7 @@ Range::T_RangeList Range::getRanges(Range::BoundaryValues values, int key)
 Range::BreachType Range::validateTheData(::vector<int> sequence, int key)
 {
     Range::BreachType breachType = VALID;
-    if(key < 0)
+    if(key <= 0)
     {
         breachType = INVALID;
     }
