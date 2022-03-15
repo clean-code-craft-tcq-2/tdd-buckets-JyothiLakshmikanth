@@ -125,21 +125,22 @@ TEST_CASE("checkTheRangeAndReadings_ForGivenSequence_checkTheOutput")
       rangeBasedReadingsList.push_back({7,9});
     
     //prepare expected output
-      char delimiter = ',';
-      char separator = '-';
-      expectedOutput.append("RANGE");
-      expectedOutput = expectedOutput+delimiter;
-      expectedOutput.append("READINGS");
-      expectedOutput.append("\n");
-      for(size_t i = 0; i<rangelist.size();++i)
-      {
-        expectedOutput.append(std::to_string(rangelist[i].first));
-        expectedOutput = expectedOutput + separator;
-        expectedOutput.append(std::to_string(rangelist[i].second));
-        expectedOutput = expectedOutput+delimiter;
-        expectedOutput.append(std::to_string(rangeBasedReadingsList[i].size()));
-        expectedOutput.append("\n");
-      }
+    expectedOutput = range.prepareOutputInCSVFormat(rangelist,rangeBasedReadingsList);
+//       char delimiter = ',';
+//       char separator = '-';
+//       expectedOutput.append("RANGE");
+//       expectedOutput = expectedOutput+delimiter;
+//       expectedOutput.append("READINGS");
+//       expectedOutput.append("\n");
+//       for(size_t i = 0; i<rangelist.size();++i)
+//       {
+//         expectedOutput.append(std::to_string(rangelist[i].first));
+//         expectedOutput = expectedOutput + separator;
+//         expectedOutput.append(std::to_string(rangelist[i].second));
+//         expectedOutput = expectedOutput+delimiter;
+//         expectedOutput.append(std::to_string(rangeBasedReadingsList[i].size()));
+//         expectedOutput.append("\n");
+//       }
     
     // get the actual output
       actualOutput = range.checkTheRangeAndReadings(validSequence, key);
