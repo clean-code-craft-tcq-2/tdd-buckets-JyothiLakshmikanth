@@ -12,17 +12,17 @@ Range range;
 
 TEST_CASE("ValidateTheData_CheckForBreachType_IsValidOrNot")
 {
-  ::std::vector<int> input = {2,4,3,6,1,6,7,8,9,3};
+  ::std::vector<int> validSequence = {2,4,3,6,1,6,7,8,9,3};
   SECTION("Check For Key Value 0")
   {
     int key = 0;
-    BreachType breach = range.validateTheData(input,key);
+    BreachType breach = range.validateTheData(validSequence,key);
     REQUIRE(breach == INVALID);
   }
   SECTION("Check for negative key Value")
   {
-    key = -1;
-    breach = range.validateTheData(input,key);
+    int key = -1;
+    breach = range.validateTheData(validSequence,key);
     REQUIRE(breach == INVALID);
   }
   SECTION("check for Positive Key Value and then check for Sequence")
@@ -30,13 +30,14 @@ TEST_CASE("ValidateTheData_CheckForBreachType_IsValidOrNot")
     int key = 3;
     SECTION("Check for Valid Sequence with Valid Key")
     {
-       breach = range.validateTheData(input,key);
+       breach = range.validateTheData(validSequence,key);
        REQUIRE(breach == VALID);
     }
     SECTION("Check for Invalid Sequence with Valid Key")
     {
-       input = {2,4,3,6,-1,6,7,8,-9,3};
-       breach = range.validateTheData(input,key);
+       int key = 3;
+       ::std::vector<int> inValidSequence = {2,4,3,6,-1,6,7,8,-9,3};
+       breach = range.validateTheData(inValidSequence,key);
        REQUIRE(breach == INVALID);
     }
   }
@@ -44,8 +45,8 @@ TEST_CASE("ValidateTheData_CheckForBreachType_IsValidOrNot")
 
 TEST_CASE("ForTheGivenSequence_FindTheMaxAndMinValues")
 {
-  ::std::vector<int> input = {2,4,3,6,1,6,7,8,9,3};
-  BoundaryValues values = range.getMaxAndMinValue(input);
+  ::std::vector<int> validSequence = {2,4,3,6,1,6,7,8,9,3};
+  BoundaryValues values = range.getMaxAndMinValue(validSequence);
   REQUIRE(values.min == 1);
   REQUIRE(values.max == 9);
 }
@@ -53,14 +54,14 @@ TEST_CASE("ForTheGivenSequence_FindTheMaxAndMinValues")
 TEST_CASE("ForTheGivenSequence_FindTheValidRanges")
 {
   int key = 3;
-  ::std::vector<int> input = {2,4,3,6,1,6,7,8,9,3};
+  ::std::vector<int> validSequence = {2,4,3,6,1,6,7,8,9,3};
   // prepare expectedRangeList
   Range::T_RangeList actualRangelist, expectedRangeList;
   expectedRangeList.push_back(make_pair(1,3));
   expectedRangeList.push_back(make_pair(4,6));
   expectedRangeList.push_back(make_pair(7,9));
   // get actualRangelist
-  actualRangelist = range.getRanges(input, key);
+  actualRangelist = range.getRanges(validSequence, key);
   SECTION("Check the size")
   {
     REQUIRE(expectedRangeList.size() == actualRangelist.size())
@@ -74,7 +75,7 @@ TEST_CASE("ForTheGivenSequence_FindTheValidRanges")
 TEST_CASE("ForGivenSequenceRange_GetTheReadings")
 {
   int key = 3;
-  ::std::vector<int> input = {2,4,3,6,1,6,7,8,9,3};
+  ::std::vector<int> validSequence = {2,4,3,6,1,6,7,8,9,3};
   // prepare rangelist
   Range::T_RangeList rangelist;
   rangelist.push_back(make_pair(1,3));
@@ -86,7 +87,7 @@ TEST_CASE("ForGivenSequenceRange_GetTheReadings")
   expectedRangeBasedReadingsList.push_back({4,5,6,4});
   expectedRangeBasedReadingsList.push_back({7,9});
   // get actualRangeBasedReadingsList
-  actualRangeBasedReadingsList = range.getTheReadings(rangelist, input);
+  actualRangeBasedReadingsList = range.getTheReadings(rangelist, validSequence);
   SECTION("Check the size")
   {
     REQUIRE(expectedRangeBasedReadingsList.size() == actualRangeBasedReadingsList.size())
@@ -100,7 +101,7 @@ TEST_CASE("ForGivenSequenceRange_GetTheReadings")
 TEST_CASE("checkTheRangeAndReadings_ForGivenSequence_checkTheOutput")
 {
   ::string expectedOutput, actualOutput;
-  ::std::vector<int> input = {2,4,3,6,1,6,7,8,9,3};
+  ::std::vector<int> validSequence = {2,4,3,6,1,6,7,8,9,3};
   SECTION("Invalid key")
   {
       int key = 0;
@@ -110,7 +111,7 @@ TEST_CASE("checkTheRangeAndReadings_ForGivenSequence_checkTheOutput")
   }
   SECTION("Valid Key and Valid Sequence")
   {
-      key = 3;
+      int key = 3;
       //prepare rangelist
       Range::T_RangeList rangelist;
       rangelist.push_back(make_pair(1,3));
@@ -141,15 +142,15 @@ TEST_CASE("checkTheRangeAndReadings_ForGivenSequence_checkTheOutput")
       }
     
     // get the actual output
-      actualOutput = range.checkTheRangeAndReadings(input, key);
+      actualOutput = range.checkTheRangeAndReadings(validSequence, key);
       REQUIRE(actualOutput == expectedOutput);
   }
   SECTION("Valid key and Invalid Sequence")
   {
-    input = {2,4,3,6,1,6,7,-8,9,3};
+     ::std::vector<int> inValidSequence = {2,4,3,6,1,6,7,-8,9,3};
     expectedOutput = "-";
         // get the actual output
-      actualOutput = range.checkTheRangeAndReadings(input, key);
+      actualOutput = range.checkTheRangeAndReadings(inValidSequence, key);
       REQUIRE(actualOutput == expectedOutput);
   }   
 }
