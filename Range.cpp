@@ -36,12 +36,16 @@ Range::BoundaryValues Range::getMaxAndMinValue(::vector<int> input)
     outputCSVFormat.append("\n");
     for(size_t i = 0; i<range.size();++i)
     {
+     if(!readingsList[i].empty())
+     {
+      
         outputCSVFormat.append(std::to_string(range[i].first));
         outputCSVFormat = outputCSVFormat + separator;
         outputCSVFormat.append(std::to_string(range[i].second));
         outputCSVFormat = outputCSVFormat+delimiter;
         outputCSVFormat.append(std::to_string(readingsList[i].size()));
         outputCSVFormat.append("\n");
+     }
     }
   return outputCSVFormat;
 }
