@@ -1,3 +1,4 @@
+#pragma
 #define CATCH_CONFIG_MAIN  // This tells Catch to provide a main() - only do this in one cpp file
 #include "test/catch.hpp"
 
@@ -75,7 +76,6 @@ TEST_CASE("ForTheGivenSequence_FindTheValidRanges")
 
 TEST_CASE("ForGivenSequenceRange_GetTheReadings")
 {
-  int key = 3;
   ::std::vector<int> validSequence = {2,4,3,6,1,6,7,8,9,3};
   // prepare rangelist
   Range::T_RangeList rangelist;
@@ -107,12 +107,12 @@ TEST_CASE("checkTheRangeAndReadings_ForGivenSequence_checkTheOutput")
   {
       int key = 0;
       expectedOutput = "-";
-      actualOutput = range.checkTheRangeAndReadings(input, key);
+      actualOutput = range.checkTheRangeAndReadings(validSequence, key);
       REQUIRE(actualOutput == expectedOutput);
   }
+  int key = 3;
   SECTION("Valid Key and Valid Sequence")
   {
-      int key = 3;
       //prepare rangelist
       Range::T_RangeList rangelist;
       rangelist.push_back(make_pair(1,3));
@@ -132,14 +132,14 @@ TEST_CASE("checkTheRangeAndReadings_ForGivenSequence_checkTheOutput")
       expectedOutput = output+delimiter;
       expectedOutput.append("READINGS");
       expectedOutput.append("\n");
-      for(int i = 0; i<rangelist.size();++i)
+      for(size_t i = 0; i<rangelist.size();++i)
       {
         expectedOutput.append(std::to_string(rangelist[i].first));
-        output = output + separator;
-        output.append(std::to_string(rangelist[i].second));
-        output = output+delimiter;
-        output.append(std::to_string(rangeBasedReadingsList[i].size()));
-        output.append("\n");
+        expectedOutput = expectedOutput + separator;
+        expectedOutput.append(std::to_string(rangelist[i].second));
+        expectedOutput = output+delimiter;
+        expectedOutput.append(std::to_string(rangeBasedReadingsList[i].size()));
+        expectedOutput.append("\n");
       }
     
     // get the actual output
@@ -149,7 +149,7 @@ TEST_CASE("checkTheRangeAndReadings_ForGivenSequence_checkTheOutput")
   SECTION("Valid key and Invalid Sequence")
   {
      ::std::vector<int> inValidSequence = {2,4,3,6,1,6,7,-8,9,3};
-    expectedOutput = "-";
+      expectedOutput = "-";
         // get the actual output
       actualOutput = range.checkTheRangeAndReadings(inValidSequence, key);
       REQUIRE(actualOutput == expectedOutput);
