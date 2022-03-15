@@ -7,9 +7,9 @@
  return outputCSVFormat;
 }
 
-Range::BoundValues Range::getMaxAndMinValue(::vector<int> /*input*/)
+Range::BoundaryValues Range::getMaxAndMinValue(::vector<int> /*input*/)
 {
- Range::BoundValues boundaryValues(0,0);
+ Range::BoundaryValues boundaryValues;
  return boundaryValues;
 }
 
