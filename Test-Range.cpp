@@ -105,7 +105,7 @@ TEST_CASE("checkTheRangeAndReadings_ForGivenSequence_checkTheOutput")
   {
       int key = 0;
       expectedOutput = "-";
-      actualOutput = checkTheRangeAndReadings(input, key);
+      actualOutput = range.checkTheRangeAndReadings(input, key);
       REQUIRE(actualOutput == expectedOutput);
   }
   SECTION("Valid Key and Valid Sequence")
@@ -141,7 +141,7 @@ TEST_CASE("checkTheRangeAndReadings_ForGivenSequence_checkTheOutput")
       }
     
     // get the actual output
-      actualOutput = checkTheRangeAndReadings(input, key);
+      actualOutput = range.checkTheRangeAndReadings(input, key);
       REQUIRE(actualOutput == expectedOutput);
   }
   SECTION("Valid key and Invalid Sequence")
@@ -149,7 +149,7 @@ TEST_CASE("checkTheRangeAndReadings_ForGivenSequence_checkTheOutput")
     input = {2,4,3,6,1,6,7,-8,9,3};
     expectedOutput = "-";
         // get the actual output
-      actualOutput = checkTheRangeAndReadings(input, key);
+      actualOutput = range.checkTheRangeAndReadings(input, key);
       REQUIRE(actualOutput == expectedOutput);
   }   
 }
