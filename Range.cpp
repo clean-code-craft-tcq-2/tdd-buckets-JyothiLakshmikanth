@@ -25,13 +25,13 @@ Range::T_RangeBasedReadingsList Range::getTheReadings(Range::T_RangeList /*range
  return rangeBasedReadingsList;
 }
 
-Range::T_RangeList getRanges(Range::BoundValues /*values*/, int /*key*/)
+Range::T_RangeList Range::getRanges(Range::BoundaryValues /*values*/, int /*key*/)
 {
  Range::T_RangeList rangList;
  return rangList;
 }
 
-Range::BreachType validateTheData(::vector<int> /*input*/, int /*key*/)
+Range::BreachType Range::validateTheData(::vector<int> /*input*/, int /*key*/)
 {
  Range::BreachType breachType;
  return breachType;
