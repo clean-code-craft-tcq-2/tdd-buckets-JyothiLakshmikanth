@@ -1,4 +1,3 @@
-#pragma
 #define CATCH_CONFIG_MAIN  // This tells Catch to provide a main() - only do this in one cpp file
 #include "test/catch.hpp"
 
@@ -48,22 +47,23 @@ TEST_CASE("ValidateTheData_CheckForBreachType_IsValidOrNot")
 TEST_CASE("ForTheGivenSequence_FindTheMaxAndMinValues")
 {
   ::std::vector<int> validSequence = {2,4,3,6,1,6,7,8,9,3};
-  Range::BoundaryValues values = range.getMaxAndMinValue(validSequence);
-  REQUIRE(values.min == 1);
-  REQUIRE(values.max == 9);
+  Range::BoundaryValues boundaryValues = range.getMaxAndMinValue(validSequence);
+  REQUIRE(boundaryValues.min == 1);
+  REQUIRE(boundaryValues.max == 9);
 }
 
 TEST_CASE("ForTheGivenSequence_FindTheValidRanges")
 {
   int key = 3;
   ::std::vector<int> validSequence = {2,4,3,6,1,6,7,8,9,3};
+  Range::BoundaryValues boundaryValues = range.getMaxAndMinValue(validSequence);
   // prepare expectedRangeList
   Range::T_RangeList actualRangelist, expectedRangeList;
   expectedRangeList.push_back(make_pair(1,3));
   expectedRangeList.push_back(make_pair(4,6));
   expectedRangeList.push_back(make_pair(7,9));
   // get actualRangelist
-  actualRangelist = range.getRanges(validSequence, key);
+  actualRangelist = range.getRanges(boundaryValues, key);
   SECTION("Check the size")
   {
     REQUIRE(expectedRangeList.size() == actualRangelist.size())
@@ -137,7 +137,7 @@ TEST_CASE("checkTheRangeAndReadings_ForGivenSequence_checkTheOutput")
         expectedOutput.append(std::to_string(rangelist[i].first));
         expectedOutput = expectedOutput + separator;
         expectedOutput.append(std::to_string(rangelist[i].second));
-        expectedOutput = output+delimiter;
+        expectedOutput = expectedOutput+delimiter;
         expectedOutput.append(std::to_string(rangeBasedReadingsList[i].size()));
         expectedOutput.append("\n");
       }
