@@ -7,7 +7,6 @@
     Range::BreachType breachType = validateTheData(sequence, key);
     if(breachType == Range::VALID)
     {
-        breachType = Range::VALID;
         Range::BoundaryValues values = getMaxAndMinValue(sequence);
         Range::T_RangeList range = getRanges(values, key);
         Range::T_RangeBasedReadingsList readingsList = getTheReadings(range, sequence);
@@ -56,7 +55,6 @@ Range::T_RangeBasedReadingsList Range::getTheReadings(Range::T_RangeList range, 
     for(size_t i = 0; i < range.size(); ++i)
     {
         ::vector<int> readingList;
-//         cout << range[i].first << "\t" << range[i].second << endl;
         ::vector<int>::const_iterator sequenceIt = sequence.begin();
         for(; sequenceIt != sequence.end(); ++sequenceIt)
         {
@@ -67,29 +65,18 @@ Range::T_RangeBasedReadingsList Range::getTheReadings(Range::T_RangeList range, 
         }
         rangeBasedReadingsList.push_back(readingList);
     }
-//     for (size_t i = 0; i < rangeListReadings.size(); i++)
-//     {
-//         ::cout<<"rangeListReadings["<<i<<"] size - "<<rangeListReadings[i].size()<<endl;
-//         for(size_t j=0;j<rangeListReadings[i].size();j++)
-//         {
-//             cout << "rangeListReadings["<<i<<"]"<<rangeListReadings[i][j]<< endl;
-//         }
-//     }
 
  return rangeBasedReadingsList;
 }
 
 Range::T_RangeList Range::getRanges(Range::BoundaryValues values, int key)
 {
- Range::T_RangeList rangList;
-    
-//     ::cout<<"min - "<<values.min<< "\t" <<"max - "<<values.max<< "\t" <<"key - "<<key<<endl;
+    Range::T_RangeList rangList;
     for (int i = values.min; i < values.max; )
     {
         rangList.push_back(make_pair(i,i+key-1));
         i=i+key;
-    }
-  //  ::std::cout<<"result size - "<<rangList.size()<<endl;
+    } 
  return rangList;
 }
 
